@@ -54,7 +54,8 @@
     "react-notion-x": "^7.4.3",
     "react-tweet": "^3.2.2",
     "react-use": "^17.6.0",
-    "rss": "^1.2.2"
+    "rss": "^1.2.2",
+    "vercel": "^47.0.5"
   },
   "devDependencies": {
     "@fisch0920/config": "^1.1.2",
