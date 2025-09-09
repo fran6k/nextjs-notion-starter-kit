@@ -4,7 +4,7 @@ import Image from 'next/legacy/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { type PageBlock } from 'notion-types'
-import { formatDate, getBlockTitle, getPageProperty } from 'notion-utils'
+import { formatDate, getBlockTitle, getPageProperty, parsePageId } from 'notion-utils'
 import * as React from 'react'
 import BodyClassName from 'react-body-classname'
 import {
@@ -225,8 +225,8 @@ export function NotionPage({
   const keys = Object.keys(recordMap?.block || {})
   const block = recordMap?.block?.[keys[0]!]?.value
 
-  // const isRootPage =
-  //   parsePageId(block?.id) === parsePageId(site?.rootNotionPageId)
+  const isRootPage =
+    parsePageId(block?.id) === parsePageId(site?.rootNotionPageId)
   const isBlogPost =
     block?.type === 'page' && block?.parent_table === 'collection'
 
@@ -244,7 +244,10 @@ export function NotionPage({
     [block, recordMap, isBlogPost]
   )
 
-  const footer = React.useMemo(() => <Footer />, [])
+  const footer = React.useMemo(
+    () => <Footer createdAt={isRootPage ? undefined : block?.created_time} />,
+    [isRootPage, block?.created_time]
+  )
 
   if (router.isFallback) {
     return <Loading />

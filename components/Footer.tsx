@@ -16,7 +16,7 @@ import styles from './styles.module.css'
 
 // TODO: merge the data and icons from PageSocial with the social links in Footer
 
-export function FooterImpl() {
+export function FooterImpl({ createdAt }: { createdAt?: number | string }) {
   const [hasMounted, setHasMounted] = React.useState(false)
   const { isDarkMode, toggleDarkMode } = useDarkMode()
   const currentYear = new Date().getFullYear()
@@ -137,6 +137,13 @@ export function FooterImpl() {
           </a>
         )}
       </div>
+
+      
+      {createdAt ? (
+        <div className={styles.copyright}>
+          创建于 {new Date((createdAt as any)).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </div>
+      ) : null}
     </footer>
   )
 }
