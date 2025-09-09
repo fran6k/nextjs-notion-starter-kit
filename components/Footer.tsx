@@ -36,7 +36,7 @@ export function FooterImpl({ createdAt }: { createdAt?: number | string }) {
   return (
     <footer className={styles.footer}>
       <div className={styles.copyright}>
-        Copyright {currentYear} {config.author}
+        Copyright {currentYear} {config.author} <a href="https://beian.miit.gov.cn/" target='_blank' rel='noopener noreferrer'>晋ICP备20007820号-1</a>
       </div>
 
       <div className={styles.settings}>

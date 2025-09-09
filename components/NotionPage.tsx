@@ -230,8 +230,9 @@ export function NotionPage({
   const isBlogPost =
     block?.type === 'page' && block?.parent_table === 'collection'
 
-  const showTableOfContents = !!isBlogPost
-  const minTableOfContentsItems = 1
+  // const showTableOfContents = !!isBlogPost
+  const showTableOfContents = true
+  const minTableOfContentsItems = 3
 
   const pageAside = React.useMemo(
     () => (
@@ -316,8 +317,9 @@ export function NotionPage({
         rootPageId={site.rootNotionPageId}
         rootDomain={site.domain}
         fullPage={!isLiteMode}
-        previewImages={!!recordMap.preview_images}
-        showCollectionViewDropdown={false}
+        previewImages={true}
+        showCollectionViewDropdown={true}
+        isLinkCollectionToUrlProperty={true}
         showTableOfContents={showTableOfContents}
         minTableOfContentsItems={minTableOfContentsItems}
         defaultPageIcon={config.defaultPageIcon}
