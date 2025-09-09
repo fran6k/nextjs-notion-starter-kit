@@ -317,9 +317,9 @@ export function NotionPage({
         rootPageId={site.rootNotionPageId}
         rootDomain={site.domain}
         fullPage={!isLiteMode}
-        previewImages={true}
+        previewImages={!!recordMap.preview_images}
         showCollectionViewDropdown={true}
-        isLinkCollectionToUrlProperty={true}
+        // isLinkCollectionToUrlProperty={true}
         showTableOfContents={showTableOfContents}
         minTableOfContentsItems={minTableOfContentsItems}
         defaultPageIcon={config.defaultPageIcon}

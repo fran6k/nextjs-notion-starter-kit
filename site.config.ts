@@ -59,7 +59,7 @@ export default siteConfig({
     // },
     {
       title: '友情链接',
-      pageId: '友情链接-269a618e009c80aea57feb68fbee14f1'
+      pageId: '269a618e009c80aea57feb68fbee14f1'
     }
   ]
 })

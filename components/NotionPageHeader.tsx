@@ -37,11 +37,12 @@ export function NotionPageHeader({
 }: {
   block: types.CollectionViewPageBlock | types.PageBlock
 }) {
-  const { components, mapPageUrl } = useNotionContext()
+  const { components } = useNotionContext()
 
   if (navigationStyle === 'default') {
     return <Header block={block} />
   }
+  // console.log(mapPageUrl('269a618e009c80aea57feb68fbee14f1'))
 
   return (
     <header className='notion-header'>
@@ -58,7 +59,7 @@ export function NotionPageHeader({
               if (link.pageId) {
                 return (
                   <components.PageLink
-                    href={mapPageUrl(link.pageId)}
+                    href={link.pageId}
                     key={index}
                     className={cs(styles.navLink, 'breadcrumb', 'button')}
                   >
