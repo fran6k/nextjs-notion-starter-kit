@@ -210,7 +210,7 @@ export function NotionPage({
   )
 
   // lite mode is for oembed
-  const isLiteMode = lite === 'true'
+  const isLiteMode = lite === 'false'
 
   const { isDarkMode } = useDarkMode()
 
